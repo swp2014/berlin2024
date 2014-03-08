@@ -29,6 +29,7 @@ public class Main extends JFrame {
 	ArrayList<Image> images = new ArrayList<Image>();
 	ArrayList<String> titles = new ArrayList<String>();
 	ArrayList<AnimatorItf> animators = new ArrayList<AnimatorItf>();
+	Font font = new Font("Arial", Font.BOLD, 18);
 
 	private Main() {
 		// empty
@@ -97,6 +98,7 @@ public class Main extends JFrame {
 		Main instance = new Main();
 		instance.init("images.txt", "animators.txt");
 		instance.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		instance.setTitle("Berlin 2014");
 		instance.pack();
 		instance.setVisible(true);
 	}
@@ -118,7 +120,7 @@ public class Main extends JFrame {
 			if (animatorIndex > 0) {
 				animators.get(animatorIndex).setComponent(null);
 			}
-			
+
 			// check, if a new image was selected
 			if (imageIndex == index) {
 
@@ -126,7 +128,7 @@ public class Main extends JFrame {
 				boolean success = false;
 				for (int i = animatorIndex + 1; i < animators.size(); ++i) {
 					AnimatorItf anim = animators.get(i);
-					
+
 					// search for an animator fitting to our image
 					if (anim.getTitle().equals(titles.get(imageIndex))) {
 						animatorIndex = i;
@@ -135,7 +137,7 @@ public class Main extends JFrame {
 						break;
 					}
 				}
-				
+
 				// disable the animator, if we haven't found one
 				if (!success) {
 					animatorIndex = 0;
@@ -162,14 +164,16 @@ public class Main extends JFrame {
 
 			// ask the animator to paint, if we have any
 			if (animatorIndex != 0) {
-				AnimatorItf anim = animators.get(animatorIndex); 
+				AnimatorItf anim = animators.get(animatorIndex);
 				anim.paint(g);
 				g.setColor(Color.CYAN);
-				g.setFont(new Font("Arial", Font.BOLD, 18));
-				g.drawString(anim.getLyrics(), 50, 50);
+				g.setFont(font);
+				String lyrics = anim.getLyrics();
+				int len = g.getFontMetrics().stringWidth(lyrics);
+				g.drawString(lyrics, (getWidth() - len) / 2, getHeight() - 30);
 			}
 
-			System.out.println("repaint");
+//			System.out.println("repaint");
 		}
 
 		@Override

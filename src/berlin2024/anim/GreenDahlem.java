@@ -8,9 +8,17 @@ import berlin2024.AnimatorItf;
 
 public class GreenDahlem implements AnimatorItf {
 
+	// we count the number of instances that we created
+	static int instanceCounter = 0;
+
 	long startTime;
 	Thread t = null;
 	Component comp = null;
+	int instanceID;
+
+	public GreenDahlem() {
+		instanceID = instanceCounter++;
+	}
 
 	@Override
 	public void run() {
@@ -18,7 +26,7 @@ public class GreenDahlem implements AnimatorItf {
 		while (comp != null) {
 			comp.repaint();
 			try {
-				Thread.sleep(40);
+				Thread.sleep(200);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -32,14 +40,26 @@ public class GreenDahlem implements AnimatorItf {
 	}
 
 	@Override
-	public void paint(Graphics g) {
-		g.setColor(Color.GREEN);
-		int frame = (int) (System.currentTimeMillis()-startTime) / 10 % 800;
-		g.fillOval(0, 0, frame, 300);
+	public synchronized void paint(Graphics g) {
+
+		// ensure, that we have a component
+		if (comp == null) {
+			return;
+		}
+
+		// get width and height
+		int width = Math.max(comp.getWidth(), 1);
+		int height = Math.max(comp.getHeight(), 1);
+
+		g.setXORMode(instanceID == 0 ? Color.GREEN : Color.lightGray);
+		int ballWidth = (int) (((System.currentTimeMillis() - startTime) / 10 % width) * 0.8);
+		int ballHeight = (int) (height * (3 + Math.random()) / 4);
+		g.fillOval((width - ballWidth) / 2, (height - ballHeight) / 2, ballWidth, ballHeight);
+		g.setPaintMode();
 	}
 
 	@Override
-	public void setComponent(Component c) {
+	public synchronized void setComponent(Component c) {
 
 		// check, if anything to do
 		if (c == comp) {
@@ -49,11 +69,7 @@ public class GreenDahlem implements AnimatorItf {
 		// set component
 		comp = c;
 
-		// notify the thread, so it can stop
-//		if (t != null) {
-//			t.notify();
-//		}
-
+		// start a new thread, if necessary
 		if (comp != null) {
 			t = new Thread(this);
 			t.start();
@@ -62,7 +78,7 @@ public class GreenDahlem implements AnimatorItf {
 
 	@Override
 	public String getLyrics() {
-		return "hier so'n Beispieltext. Kann man irgendwas reinschreiben";
+		return "This is instance #" + instanceID + " of green Dahlem";
 	}
 
 }
