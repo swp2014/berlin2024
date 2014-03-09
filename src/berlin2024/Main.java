@@ -98,7 +98,7 @@ public class Main extends JFrame {
 		Main instance = new Main();
 		instance.init("images.txt", "animators.txt");
 		instance.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		instance.setTitle("Berlin 2014");
+		instance.setTitle("Berlin 2024");
 		instance.pack();
 		instance.setVisible(true);
 	}
