@@ -1,2 +1,5 @@
 Dahlem.png
 Tempelhof.png
+Alexanderplatz.png
+Hauptbahnhof.png
+Tegel.png
