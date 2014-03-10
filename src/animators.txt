@@ -6,4 +6,4 @@ berlin2024.anim.Godzilla
 berlin2024.anim.BungeeJump
 berlin2024.anim.Baum
 berlin2024.anim.haushaus
-
+berlin2024.anim.Circlez
