@@ -2,3 +2,9 @@ berlin2024.anim.GreenDahlem
 berlin2024.anim.GreenDahlem
 berlin2024.anim.TempleBike
 berlin2024.anim.Home
+berlin2024.anim.Explosion
+berlin2024.anim.Godzilla
+berlin2024.anim.BungeeJump
+berlin2024.anim.Baum
+berlin2024.anim.haushaus
+berlin2024.anim.RandomShuffle
