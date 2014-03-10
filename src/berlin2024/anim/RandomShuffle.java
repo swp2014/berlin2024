@@ -18,12 +18,7 @@ public class RandomShuffle implements AnimatorItf {
 	Thread thread = null;
 	Component comp = null;
 	BufferedImage backgroundImage = null;
-	int maxTilesize = 100;
 	int minTilesize = 40;
-
-	final int mapWidth = 1000;
-	final int mapHeight = 700;
-	final long maxFrame = 10000;
 	Point mouse;
 
 	public RandomShuffle() {
