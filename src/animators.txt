@@ -9,3 +9,4 @@ berlin2024.anim.Baum
 berlin2024.anim.haushaus
 berlin2024.anim.RandomShuffle
 berlin2024.anim.BigMoney
+berlin2024.anim.Crash
