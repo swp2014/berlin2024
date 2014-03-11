@@ -17,3 +17,4 @@ berlin2024.anim.Train
 berlin2024.anim.Meer
 berlin2024.anim.Circlez
 berlin2024.anim.Kreis
+berlin2024.anim.Pfeil
