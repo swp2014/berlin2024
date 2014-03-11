@@ -1,5 +1,17 @@
 berlin2024.anim.GreenDahlem
 berlin2024.anim.GreenDahlem
 berlin2024.anim.TempleBike
+berlin2024.anim.Home
 berlin2024.anim.Explosion
 berlin2024.anim.vogel
+berlin2024.anim.KingAlex
+berlin2024.anim.Godzilla
+berlin2024.anim.BungeeJump
+berlin2024.anim.Baum
+berlin2024.anim.haushaus
+berlin2024.anim.RandomShuffle
+berlin2024.anim.BigMoney
+berlin2024.anim.Crash
+berlin2024.anim.Train
+berlin2024.anim.Meer
+berlin2024.anim.Circlez
