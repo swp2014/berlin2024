@@ -9,3 +9,7 @@
 # Eclipse Files #
 .classpath
 .project
+/.metadata
+
+# windows #
+src/Thumbs.db
