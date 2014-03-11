@@ -18,12 +18,7 @@ public class RandomShuffle implements AnimatorItf {
 	Thread thread = null;
 	Component comp = null;
 	BufferedImage backgroundImage = null;
-	int maxTilesize = 100;
 	int minTilesize = 40;
-
-	final int mapWidth = 1000;
-	final int mapHeight = 700;
-	final long maxFrame = 10000;
 	Point mouse;
 
 	public RandomShuffle() {
@@ -81,7 +76,7 @@ public class RandomShuffle implements AnimatorItf {
 		for (int i = 0; i <= 50 + (int) Math.random() * 2000; i++) {
 			// get a random tile as subimage
 			float sizeFactor = map(mouse.x, 0, backgroundImage.getWidth(), 1, 20);
-			int randomTileSize = (int) (Math.random() * minTilesize * sizeFactor);
+			int randomTileSize = (int) Math.ceil(Math.random() * minTilesize * sizeFactor);
 			int randomX = (int) (Math.random() * (backgroundImage.getWidth() - randomTileSize));
 			int randomY = (int) (Math.random() * (backgroundImage.getHeight() - randomTileSize));
 			BufferedImage randomTile = backgroundImage.getSubimage(randomX,
