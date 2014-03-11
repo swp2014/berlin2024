@@ -11,3 +11,4 @@ berlin2024.anim.RandomShuffle
 berlin2024.anim.BigMoney
 berlin2024.anim.Crash
 berlin2024.anim.Train
+berlin2024.anim.Meer
