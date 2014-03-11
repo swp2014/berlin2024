@@ -3,6 +3,7 @@ package berlin2024.anim;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.util.Random;
 
 import berlin2024.AnimatorItf;
@@ -25,10 +26,13 @@ public class Circlez implements AnimatorItf {
 
 	@Override
 	public void paint(Graphics g) {
+		Rectangle c = g.getClipBounds();
+		int width = c.width;
+		int height = c.height;
 		g.setColor(Color.CYAN);
 		Random Rand = new Random();
-		for (int i = 1; i <= Rand.nextInt(640); ++i){
-			g.drawOval(Rand.nextInt(640), Rand.nextInt(640), Rand.nextInt(40), Rand.nextInt(40));
+		for (int i = 1; i <= Rand.nextInt(1000); ++i){
+			g.drawOval(Rand.nextInt(width), Rand.nextInt(height), Rand.nextInt(width), Rand.nextInt(height));
 		}
 		
 
